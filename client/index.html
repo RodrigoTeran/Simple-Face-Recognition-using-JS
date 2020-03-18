@@ -19,10 +19,16 @@
         #yesDisplay{
             display: block;
         }
+        .noMobile{
+            font-size: 50px;
+            font-family: "Arial";
+            text-align: center;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <div class="todo">
+    <div class="todo" id="noDisplay">
         <canvas class="lienzo" style="background-color:rgba(120, 120, 120 ,1);"></canvas>
     </div>
     <div class="noMobile" id="noDisplay">This Website is not made for mobile devices</div>
@@ -42,11 +48,14 @@
                 (navigator.userAgent.match(/iBlackBerry/i))
             );
         };
+        var noMobile = document.getElementsByClassName("noMobile")[0];
+        var todo = document.getElementsByClassName("todo")[0];
         if(isMobile()){
-            var noMobile = document.getElementsByClassName("noMobile")[0];
-            var todo = document.getElementsByClassName("todo")[0];
             todo.id = 'noDisplay';
             noMobile.id = 'yesDisplay';
+        }else{
+            todo.id = 'yesDisplay';
+            noMobile.id = 'noDisplay';
         }
         function actualizarTama(){
             $("body").css("zoom", window.innerWidth / 1530);
