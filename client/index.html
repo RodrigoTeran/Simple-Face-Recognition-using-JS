@@ -42,7 +42,7 @@
                 (navigator.userAgent.match(/iBlackBerry/i))
             );
         };
-        if(isMobile){
+        if(isMobile()){
             var noMobile = document.getElementsByClassName("noMobile")[0];
             var todo = document.getElementsByClassName("todo")[0];
             todo.id = 'noDisplay';
