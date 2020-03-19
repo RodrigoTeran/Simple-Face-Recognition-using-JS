@@ -1,1 +1,1 @@
-NodeJS is not necesary, I just used it for hosting it online
+NodeJS is not necessary, I just used it for hosting it online
