@@ -1,3 +1,4 @@
+//--------------------------------------------------------Normal functionalities--------------------------------------------------------
 var YesStartAll = false;
 function isMobile(){    // check if the user is in a mobile device
     return (
@@ -27,12 +28,7 @@ $(document).ready(function(){   //this is for not changing the size of the scree
     actualizarTama();  
 });
 
-
-
-
-
-
-
+//--------------------------------------------------------Video functionalities--------------------------------------------------------
 const video = document.getElementById("video");
 
 function startVideo(){
