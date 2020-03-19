@@ -16,10 +16,16 @@ if(isMobile()){ //if it is mobile, hide todo
     todo.id = 'noDisplay';
     noMobile.id = 'yesDisplay';
 }else{  //if it is in a website hide noMobile
-    todo.id = 'yesDisplay';
-    noMobile.id = 'noDisplay';
-    YesStartAll = true;
-}
+	if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+		todo.id = 'noDisplay';
+    	noMobile.id = 'yesDisplay';
+    	noMobile.innerHTML = "Edge is not supported";
+    }else{
+	    todo.id = 'yesDisplay';
+	    noMobile.id = 'noDisplay';
+	    YesStartAll = true;
+    };
+};
 function actualizarTama(){  //this is for not changing the size of the screen
     $("body").css("zoom", window.innerWidth / 1530);
 };
