@@ -15,22 +15,7 @@ serv.listen(PORT); // Local host port
 console.log("Starting Server..."); // When the server is started
 
 
-var SOCKET_LIST = {}; 
-var Personas = 0;
 var io = require("socket.io")(serv,{});
 io.sockets.on("connection", function(socket){
-	socket.id = Math.random();
-	SOCKET_LIST[socket.id] = socket;
-
-	socket.on("disconnect", function(){
-		delete SOCKET_LIST[socket.id];
-		Personas = Personas - 1;
-	});
-
-	socket.on("GetPersonas", function(){
-		Personas = Personas + 1;
-		for(var i in SOCKET_LIST){
-			SOCKET_LIST[i].emit("CantidadPersonas", Personas);
-		};
-	});
+	//connection
 });

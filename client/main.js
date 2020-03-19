@@ -74,8 +74,3 @@ if(YesStartAll){	//All the functionalities
 };
 //--------------------------------------------------------Video Server functionalities--------------------------------------------------------
 var socket = io();  //connection with the server
-if(YesStartAll){
-	socket.emit("GetPersonas");
-};
-//socket.on("CantidadPersonas", function(){
-//});
