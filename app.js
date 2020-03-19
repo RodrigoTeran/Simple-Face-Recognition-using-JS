@@ -32,6 +32,5 @@ io.sockets.on("connection", function(socket){
 		for(var i in SOCKET_LIST){
 			SOCKET_LIST[i].emit("CantidadPersonas", Personas);
 		};
-		console.log(Personas);
 	});
 });
