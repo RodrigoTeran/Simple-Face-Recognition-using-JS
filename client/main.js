@@ -13,8 +13,11 @@ function isMobile(){    // check if the user is in a mobile device
 var noMobile = document.getElementsByClassName("noMobile")[0];
 var todo = document.getElementsByClassName("todo")[0];
 if(isMobile()){ //if it is mobile, hide todo
-    todo.id = 'noDisplay';
-    noMobile.id = 'yesDisplay';
+    /*todo.id = 'noDisplay';
+    noMobile.id = 'yesDisplay';*/
+    todo.id = 'yesDisplay';
+    noMobile.id = 'noDisplay';
+    YesStartAll = true;
 }else{  //if it is in a website hide noMobile
     todo.id = 'yesDisplay';
     noMobile.id = 'noDisplay';
@@ -28,7 +31,7 @@ $(document).ready(function(){   //this is for not changing the size of the scree
     actualizarTama();  
 });
 
-//--------------------------------------------------------Video functionalities--------------------------------------------------------
+//--------------------------------------------------------Video Recognition functionalities--------------------------------------------------------
 const video = document.getElementById("video");
 
 function startVideo(){
@@ -45,3 +48,11 @@ function startVideo(){
 if(YesStartAll){	//All the functionalities
 	startVideo();
 };
+//--------------------------------------------------------Video Server functionalities--------------------------------------------------------
+var socket = io();  //connection with the server
+if(YesStartAll){
+	socket.emit("GetPersonas");
+};
+socket.on("CantidadPersonas", function(){
+	document.getElementsByClassName("todo")[0].innerHTML += "<video id='video' width='720' height='560' autoplay muted></video>";
+});
