@@ -5,6 +5,7 @@
     <meta charset="iso-8559-1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Face Recognition</title>
+    <script src="face-api.js"></script>
     <style type="text/css">
         #noDisplay{
             display: none;
@@ -16,45 +17,23 @@
             font-size: 50px;
             font-family: "Arial";
             font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="noMobile" id="noDisplay">This Website is not made for mobile devices</div>
-    <div class="todo" id="noDisplay">xd</div>
+    <div class="todo" id="noDisplay">
+        <video id="video" width="720" height="560" autoplay muted></video>
+    </div>
     <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
     </script> 
-    <script type="text/javascript">
+    <script type="text/javascript"> // This is the App JS
         var socket = io();  //connection with the server
-        function isMobile(){    // check if the user is in a mobile device
-            return (
-                (navigator.userAgent.match(/Android/i)) ||
-                (navigator.userAgent.match(/webOS/i)) ||
-                (navigator.userAgent.match(/iPhone/i)) ||
-                (navigator.userAgent.match(/iPod/i)) ||
-                (navigator.userAgent.match(/iPad/i)) ||
-                (navigator.userAgent.match(/iBlackBerry/i))
-            );
-        };
-        var noMobile = document.getElementsByClassName("noMobile")[0];
-        var todo = document.getElementsByClassName("todo")[0];
-        if(isMobile()){ //if it is mobile, hide todo
-            todo.id = 'noDisplay';
-            noMobile.id = 'yesDisplay';
-        }else{  //if it is in a website hide noMobile
-            todo.id = 'yesDisplay';
-            noMobile.id = 'noDisplay';
-        }
-        function actualizarTama(){  //this is for not changing the size of the screen
-            $("body").css("zoom", window.innerWidth / 1530);
-        };
-        $(document).ready(function(){   //this is for not changing the size of the screen
-            $(window).on("resize", actualizarTama);
-            actualizarTama();  
-        });
+    </script>
+    <script src="main.js"> // This is the Main JS
     </script>
 </body>
 </html>
-
